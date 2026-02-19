@@ -1,0 +1,199 @@
+{
+  "kind": "build_request",
+  "title": "Create e-commerce website for Aadi Shop clothing store",
+  "projectName": "Aadi Shop",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a homepage that displays featured clothing products with images, names, and prices",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Homepage displays a grid of featured clothing items",
+        "Each product card shows product image, name, and price",
+        "Products are fetched from backend storage"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement backend product catalog with fields for product name, description, price, category (men/women/kids), size options, and image filename",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores product catalog with all required fields",
+        "Support for adding, updating, and retrieving products",
+        "Products are categorized by clothing type"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a product listing page with filtering by category and price range",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can browse all available products",
+        "Filter products by category (men/women/kids)",
+        "Filter products by price range",
+        "Display product count for each category"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create individual product detail pages showing full product information, available sizes, and add to cart functionality",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Product detail page displays full product information",
+        "Users can select size before adding to cart",
+        "Add to cart button stores selected product and size"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement shopping cart functionality with ability to add, remove, and update quantities",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can add products to cart with selected size",
+        "Cart displays all items with quantity and subtotal",
+        "Users can update quantities or remove items",
+        "Cart persists across page navigation",
+        "Cart shows total price"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create checkout flow with customer information form (name, email, shipping address, phone number)",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Checkout page collects customer details",
+        "Form validates required fields",
+        "Order summary displays cart items and total",
+        "Orders are stored in backend with customer info and items"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement order management system in backend to store and retrieve customer orders",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores order history with order ID, customer details, items, and timestamp",
+        "Support for retrieving order details by order ID",
+        "Orders include status tracking (pending, confirmed, shipped, delivered)"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create an admin interface for managing products (add, edit, delete) accessible through Internet Identity authentication",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website For e business for Aadi shop clothes"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Admin page is protected by Internet Identity authentication",
+        "Admin can add new products with all details",
+        "Admin can edit existing product information",
+        "Admin can delete products from catalog",
+        "Admin can view all orders"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Design a modern, fashion-forward visual theme with warm earth tones, elegant typography, and spacious layouts that reflects a premium clothing retail experience",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent color palette using warm earth tones throughout the site",
+        "Typography is elegant and readable",
+        "Layout feels spacious with adequate whitespace",
+        "Design conveys a premium shopping experience",
+        "Responsive design works on mobile and desktop"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use Internet Identity for admin authentication only",
+    "All product images must be stored as static assets in frontend/public/assets/generated",
+    "Shopping cart must work without user authentication for guest checkout"
+  ],
+  "nonGoals": [
+    "Payment processing integration",
+    "Real-time inventory tracking",
+    "Customer account creation and login",
+    "Product reviews and ratings",
+    "Wishlist functionality",
+    "Email notifications"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Hero banner image showing fashionable clothing display (hero-banner.dim_1920x600.png)",
+      "Placeholder product image for men's t-shirt (product-mens-tshirt.dim_800x800.png)",
+      "Placeholder product image for women's dress (product-womens-dress.dim_800x800.png)",
+      "Placeholder product image for kids' outfit (product-kids-outfit.dim_800x800.png)",
+      "Aadi Shop logo with elegant typography (aadi-shop-logo.dim_400x100.png)",
+      "Empty cart illustration (empty-cart.dim_300x300.png)"
+    ],
+    "edits": []
+  }
+}

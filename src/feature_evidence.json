@@ -1,0 +1,153 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-homepage-that-displays-featured-clothing-products-with-images-names-and-prices",
+      "featureTitle": "Create a homepage that displays featured clothing products with images, names, and prices",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-product-listing-page-with-filtering-by-category-and-price-range",
+      "featureTitle": "Create a product listing page with filtering by category and price range",
+      "files": [
+        "frontend/src/components/ProductFilters.tsx",
+        "frontend/src/pages/ProductsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-individual-product-detail-pages-showing-full-product-information-available-sizes-and-add-to-cart-functionality",
+      "featureTitle": "Create individual product detail pages showing full product information, available sizes, and add to cart functionality",
+      "files": [
+        "frontend/src/hooks/useCart.ts",
+        "frontend/src/hooks/useProduct.ts",
+        "frontend/src/pages/ProductDetailPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-shopping-cart-functionality-with-ability-to-add-remove-and-update-quantities",
+      "featureTitle": "Implement shopping cart functionality with ability to add, remove, and update quantities",
+      "files": [
+        "frontend/src/components/CartIcon.tsx",
+        "frontend/src/components/CartItem.tsx",
+        "frontend/src/pages/CartPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-checkout-flow-with-customer-information-form-name-email-shipping-address-phone-number",
+      "featureTitle": "Create checkout flow with customer information form (name, email, shipping address, phone number)",
+      "files": [
+        "frontend/src/hooks/useOrders.ts",
+        "frontend/src/pages/CheckoutPage.tsx",
+        "frontend/src/pages/OrderConfirmationPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-admin-interface-for-managing-products-add-edit-delete-accessible-through-internet-identity-authentication",
+      "featureTitle": "Create an admin interface for managing products (add, edit, delete) accessible through Internet Identity authentication",
+      "files": [
+        "frontend/src/components/AdminOrdersList.tsx",
+        "frontend/src/components/AdminProductForm.tsx",
+        "frontend/src/components/AdminProductTable.tsx",
+        "frontend/src/components/ProtectedRoute.tsx",
+        "frontend/src/hooks/useAuth.ts",
+        "frontend/src/pages/AdminPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-modern-fashion-forward-visual-theme-with-warm-earth-tones-elegant-typography-and-spacious-layouts-that-reflects-a-premium-clothing-retail-experience",
+      "featureTitle": "Design a modern, fashion-forward visual theme with warm earth tones, elegant typography, and spacious layouts that reflects a premium clothing retail experience",
+      "files": [
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

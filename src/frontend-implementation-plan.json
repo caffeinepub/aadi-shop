@@ -1,0 +1,227 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Aadi Shop E-Commerce Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create homepage displaying featured clothing products with images, names, and prices",
+      "acceptanceCriteria": [
+        "Homepage displays a grid of featured clothing items",
+        "Each product card shows product image, name, and price",
+        "Products are fetched from backend storage"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create homepage component that fetches featured products using getAllProducts backend method and displays them in a responsive grid. Include hero banner using frontend/public/assets/generated/hero-banner.dim_1920x600.png and feature a curated selection of products with product cards showing image, name, and formatted price."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create reusable product card component that displays product image, name, and price with elegant styling. Component accepts Product type from backend interface and formats price display. Includes hover effects and click navigation to product detail page."
+        },
+        {
+          "path": "frontend/src/hooks/useProducts.ts",
+          "operation": "create",
+          "description": "Create React Query hook for fetching products using getAllProducts backend method. Handles loading states, error handling, and caching of product data."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create product listing page with filtering by category and price range",
+      "acceptanceCriteria": [
+        "Users can browse all available products",
+        "Filter products by category (men/women/kids)",
+        "Filter products by price range",
+        "Display product count for each category"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductsPage.tsx",
+          "operation": "create",
+          "description": "Create products listing page that displays all products in a grid with filtering capabilities. Fetch products using getAllProducts backend method and implement client-side filtering by category and price range. Display active filters and product counts. Use ProductCard component for each product."
+        },
+        {
+          "path": "frontend/src/components/ProductFilters.tsx",
+          "operation": "create",
+          "description": "Create filter sidebar component with category selection (Men/Women/Kids using Category enum) and price range slider. Includes product count display per category and clear filters functionality."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create individual product detail pages showing full information, available sizes, and add to cart functionality",
+      "acceptanceCriteria": [
+        "Product detail page displays full product information",
+        "Users can select size before adding to cart",
+        "Add to cart button stores selected product and size"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductDetailPage.tsx",
+          "operation": "create",
+          "description": "Create product detail page that fetches individual product using getProduct backend method with productId from URL params. Display full product information including large image, description, price, and available sizes. Include size selector and add to cart button that calls addToCart backend method with selected size and quantity."
+        },
+        {
+          "path": "frontend/src/hooks/useProduct.ts",
+          "operation": "create",
+          "description": "Create React Query hook for fetching single product details using getProduct backend method with productId parameter. Handles loading and error states."
+        },
+        {
+          "path": "frontend/src/hooks/useCart.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for cart operations including fetching cart with getCart backend method, adding items with addToCart, removing items with removeFromCart, and clearing cart with clearCart. Implements optimistic updates and cache invalidation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement shopping cart functionality with ability to add, remove, and update quantities",
+      "acceptanceCriteria": [
+        "Users can add products to cart with selected size",
+        "Cart displays all items with quantity and subtotal",
+        "Users can update quantities or remove items",
+        "Cart persists across page navigation",
+        "Cart shows total price"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CartPage.tsx",
+          "operation": "create",
+          "description": "Create cart page that fetches cart items using getCart backend method and displays them in a list. Each cart item shows product details, size, quantity controls, and subtotal. Include remove button using removeFromCart backend method. Calculate and display total price. Show empty cart illustration from frontend/public/assets/generated/empty-cart.dim_300x300.png when cart is empty."
+        },
+        {
+          "path": "frontend/src/components/CartItem.tsx",
+          "operation": "create",
+          "description": "Create cart item component that displays product information, size, quantity controls, and subtotal. Includes remove button and quantity update functionality that calls backend cart methods through useCart hook."
+        },
+        {
+          "path": "frontend/src/components/CartIcon.tsx",
+          "operation": "create",
+          "description": "Create cart icon component for navigation bar that displays cart item count badge. Fetches cart using useCart hook and calculates total item count. Clicking navigates to cart page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create checkout flow with customer information form collecting name, email, shipping address, and phone number",
+      "acceptanceCriteria": [
+        "Checkout page collects customer details",
+        "Form validates required fields",
+        "Order summary displays cart items and total",
+        "Orders are stored in backend with customer info and items"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CheckoutPage.tsx",
+          "operation": "create",
+          "description": "Create checkout page with customer information form (name, email, shipping address, phone) and order summary. Fetch cart items using getCart backend method. Implement form validation for required fields. On submit, call placeOrder backend method with CustomerInfo and redirect to order confirmation. Display cart items and total price in order summary section."
+        },
+        {
+          "path": "frontend/src/pages/OrderConfirmationPage.tsx",
+          "operation": "create",
+          "description": "Create order confirmation page that displays order success message and order details. Receives orderId from navigation state after successful checkout. Clears cart and shows order number."
+        },
+        {
+          "path": "frontend/src/hooks/useOrders.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for order operations including placing orders with placeOrder backend method and fetching orders with getOrders backend method for admin view."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create admin interface for managing products with Internet Identity authentication protection",
+      "acceptanceCriteria": [
+        "Admin page is protected by Internet Identity authentication",
+        "Admin can add new products with all details",
+        "Admin can edit existing product information",
+        "Admin can delete products from catalog",
+        "Admin can view all orders"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminPage.tsx",
+          "operation": "create",
+          "description": "Create admin dashboard page protected by authentication check using isCallerAdmin backend method. Display product management table with add, edit, and delete actions, and orders list. Use the authorization component to verify admin access before rendering admin interface. Show access denied message for non-admin users."
+        },
+        {
+          "path": "frontend/src/components/AdminProductForm.tsx",
+          "operation": "create",
+          "description": "Create form component for adding and editing products with fields for name, description, price, category (using Category enum), size options (using Size enum), and image filename selection from available generated images. Calls addProduct or updateProduct backend methods on submit."
+        },
+        {
+          "path": "frontend/src/components/AdminProductTable.tsx",
+          "operation": "create",
+          "description": "Create product management table component displaying all products with edit and delete actions. Implements deleteProduct backend method for deletion with confirmation dialog."
+        },
+        {
+          "path": "frontend/src/components/AdminOrdersList.tsx",
+          "operation": "create",
+          "description": "Create orders list component that fetches orders using getOrders backend method and displays order details including customer information, items, and total amount in a table format."
+        },
+        {
+          "path": "frontend/src/components/ProtectedRoute.tsx",
+          "operation": "create",
+          "description": "Create protected route wrapper component that checks authentication status using useInternetIdentity hook and admin status using isCallerAdmin backend method. Use the authorization component to enforce access control. Redirects to login or shows access denied for unauthorized users."
+        },
+        {
+          "path": "frontend/src/hooks/useAuth.ts",
+          "operation": "create",
+          "description": "Create authentication hooks that wrap useInternetIdentity and provide admin check using isCallerAdmin backend method. Follows authorization component usage pattern for role-based access control."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Design modern fashion-forward visual theme with warm earth tones, elegant typography, and spacious layouts",
+      "acceptanceCriteria": [
+        "Consistent color palette using warm earth tones throughout the site",
+        "Typography is elegant and readable",
+        "Layout feels spacious with adequate whitespace",
+        "Design conveys a premium shopping experience",
+        "Responsive design works on mobile and desktop"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with warm earth tone color palette (terracotta, sand, olive, cream), elegant typography using serif fonts for headings and sans-serif for body, and spacious layout variables. Define CSS custom properties for consistent spacing, colors, and premium aesthetic."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom color palette featuring warm earth tones (terracotta, sand, olive, cream shades), elegant font families (serif for headings), and spacing scale for spacious layouts. Configure responsive breakpoints for mobile and desktop."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create main layout component with header containing Aadi Shop logo from frontend/public/assets/generated/aadi-shop-logo.dim_400x100.png, navigation menu, and cart icon. Include footer with store information. Apply consistent spacing and premium design aesthetic throughout."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create header component with navigation bar displaying Aadi Shop logo, category links (Men, Women, Kids), cart icon with item count, and login button for admin access. Implements sticky positioning and elegant styling with warm earth tones."
+        }
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "summary": "Wire homepage and navigation into application router",
+      "acceptanceCriteria": [
+        "Homepage is accessible at root URL",
+        "Navigation between pages works correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add React Router routes for HomePage (/), ProductsPage (/products), ProductDetailPage (/products/:id), CartPage (/cart), CheckoutPage (/checkout), OrderConfirmationPage (/order-confirmation), and AdminPage (/admin). Wrap application in Layout component for consistent header and footer. Configure ProtectedRoute wrapper for admin page."
+        }
+      ]
+    }
+  ]
+}
